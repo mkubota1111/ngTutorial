@@ -8,4 +8,10 @@ export class HeroService {
   getHeroes(): Promise<Hero[]> {
     return Promise.resolve(HEROES);
   }
+
+  getHero(id: number): Promise<Hero> {
+    console.log("id: {}", id);
+    return this.getHeroes()
+      .then(heroes => heroes.find(hero => hero.id === id));
+  }
 }
